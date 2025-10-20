@@ -27,7 +27,17 @@ NewPing sonar(trig_pin,echo_pin,max_distance); // khai báo giá trị cho NewPi
 boolean goesForward = false // dùng để ghi nhận trạng thái xe, dừng, lùi = false, tới = true
 int distance = 100 // khoảng cách mặt định đo ban đầu 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(LeftForward, OUTPUT); // thiết lập giá trị ban đầu cho xe khi vừa khởi động
+  pinMode(LeftBackward, OUTPUT);// xe khi vừa khởi động sẽ đứng im
+  pinMode(RightForward, OUTPUT);
+  pinMode(RightBackward, OUTPUT);
+  pinMode(ena, OUTPUT);
+  pinMode(enb, OUTPUT);
+
+  servo_motor.attach(9); // gán servo vào chân D9 của UNO R3
+  servo_motor.write(90); // giữ servo ở hướng 90 độ( nhìn thẳng)
+
 
 }
 
